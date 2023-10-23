@@ -38,24 +38,24 @@ export async function run(): Promise<void> {
     core.debug(`Finding sha for ${owner}/${name} for env ${env} ...`)
 
     const query = `
-      query ($repo_owner: String!, $repo_name: String!, $environment: String!) {
-        repository(owner: $repo_owner, name: $repo_name) {
-          deployments(environments: [$environment], first: 10, orderBy: { field: CREATED_AT, direction: DESC }) {
-            nodes {
-              createdAt
-              environment
-              updatedAt
-              state
-              ref {
-                name
-              }
-              commit {  
-                oid  
-              }
-            }
-          } 
+query ($repo_owner: String!, $repo_name: String!, $environment: String!) {
+  repository(owner: $repo_owner, name: $repo_name) {
+    deployments(environments: [$environment], first: 10, orderBy: { field: CREATED_AT, direction: DESC }) {
+      nodes {
+        createdAt
+        environment
+        updatedAt
+        state
+        ref {
+          name
         }
-      }`
+        commit {  
+          oid  
+        }
+      }
+    } 
+  }
+}`
 
     core.info(query)
 
