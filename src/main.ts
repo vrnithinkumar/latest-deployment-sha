@@ -1,5 +1,5 @@
 import * as core from '@actions/core'
-const { Octokit } = require('@octokit/action')
+import Octokit from '@octokit/action'
 
 /**
  * The main function for the action.
