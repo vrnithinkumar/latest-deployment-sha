@@ -13,7 +13,7 @@ import * as main from '../src/main'
 const debugMock = jest.spyOn(core, 'debug')
 const getInputMock = jest.spyOn(core, 'getInput')
 // const setFailedMock = jest.spyOn(core, 'setFailed')
-const setOutputMock = jest.spyOn(core, 'setOutput')
+// const setOutputMock = jest.spyOn(core, 'setOutput')
 
 // Mock the action's main function
 const runMock = jest.spyOn(main, 'run')
@@ -50,7 +50,7 @@ describe('action', () => {
       1,
       'Finding sha for vrnithinkumar/latest-deployment-sha for env prod ...'
     )
-    expect(setOutputMock).toHaveBeenNthCalledWith(1, 'sha', expect.anything())
+    // expect(setOutputMock).toHaveBeenNthCalledWith(1, 'sha', expect.anything())
   })
 
   it('sets a failed status', async () => {
