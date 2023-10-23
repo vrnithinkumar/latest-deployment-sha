@@ -1,17 +1,22 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Latest deployment sha'
+description: 'Get sha of latest active deployment'
+author: 'Nithin'
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  repo_owner:
+    description: 'Repo owner'
     required: true
-    default: '1000'
+  repo_name:
+    description: 'Repo name'
+    required: true
+  environment:
+    description: 'Deployment environment'
+    required: true
 
 # Define your outputs here.
 outputs:
-  time:
+  sha:
     description: 'Your output description here'
 
 runs:
