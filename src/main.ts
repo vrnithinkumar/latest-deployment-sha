@@ -15,7 +15,7 @@ export async function run(): Promise<void> {
     core.debug(`Finding sha for ${repo_owner}/${repo_name} for env ${env} ...`)
 
     // Set outputs for other workflow steps to use
-    core.setOutput('sha', "${repo_owner}/${repo_name}:${env}")
+    core.setOutput('sha', '${repo_owner}/${repo_name}:${env}')
   } catch (error) {
     // Fail the workflow run if an error occurs
     if (error instanceof Error) core.setFailed(error.message)
