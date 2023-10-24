@@ -45,6 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       deployments: read
+      contents: read
     steps:
       - name: Checkout
         id: checkout
