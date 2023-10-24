@@ -13,6 +13,10 @@ inputs:
   environment:
     description: 'Deployment environment'
     required: true
+  branch:
+    description: 'Filter by the branch'
+    default: 'main'
+    required: true
 
 # Define your outputs here.
 outputs:
