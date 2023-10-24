@@ -43,7 +43,8 @@ jobs:
   test-action:
     name: GitHub Actions Test
     runs-on: ubuntu-latest
-
+    permissions:
+      deployments: read
     steps:
       - name: Checkout
         id: checkout
