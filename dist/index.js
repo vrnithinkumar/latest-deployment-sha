@@ -29633,7 +29633,7 @@ const core = __importStar(__nccwpck_require__(2186));
 const action_1 = __nccwpck_require__(1231);
 // no of deployemts to fetch via graphql query
 // TODO: configure by user input/or keep trying different sizes
-const MAX_DEPLOYEMENTS_TO_FETCH = 10;
+const MAX_DEPLOYEMENTS_TO_FETCH = 25;
 async function run() {
     try {
         const time = Date.now();
@@ -29673,21 +29673,13 @@ query ($repo_owner: String!, $repo_name: String!, $environment: String!) {
             environment: env
         };
         const data = await octokit.graphql(query, variables);
-        core.info(JSON.stringify(data));
         const nodes = data.repository.deployments.nodes;
-        for (const node of nodes) {
-            core.info(`   Created At: ${node.createdAt}`);
-            core.info(`   Environment: ${node.environment}`);
-            core.info(`   Updated At: ${node.updatedAt}`);
-            core.info(`   State: ${node.state}`);
-            core.info(`   Ref Name: ${node.ref.name}`);
-            core.info(`   Commit OID: ${node.commit.oid}`);
-        }
         const activeDeployments = nodes.filter((node) => node.ref.name === branch && node.state === 'ACTIVE');
         if (activeDeployments.length === 0) {
-            core.setFailed(`Could not find any active deployements for '${owner}/${name}' for env '${env}' in the branch '${branch}'`);
+            core.setFailed(`Could not find any active deployements in latest ${MAX_DEPLOYEMENTS_TO_FETCH}, for '${owner}/${name}' for env '${env}' in the branch '${branch}'`);
         }
         else {
+            core.info(JSON.stringify(activeDeployments[0]));
             core.setOutput('sha', activeDeployments[0].commit.oid);
         }
         core.info(`< 200 ${Date.now() - time}ms`);
