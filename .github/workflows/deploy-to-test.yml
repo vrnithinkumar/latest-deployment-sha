@@ -1,0 +1,13 @@
+name: Just testing deployments
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deployment:
+    name: TypeScript Tests
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Deploy
+        run: echo "This is a test deploy to see how our action works"
