@@ -5,7 +5,7 @@
 
 Use this action to get the commit SHA of latest active deployment in a Github repository. 
 
-> **NOTE:** ⚠️ The github action job need to explicitly add [permission](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs#defining-access-for-the-github_token-scopes) `deployments: read` to read the deployments. 
+**NOTE:** ⚠️ The github action job need to explicitly add [permission](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs#defining-access-for-the-github_token-scopes) `deployments: read` to read the deployments. 
 
 
 ## Inputs
