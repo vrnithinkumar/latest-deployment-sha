@@ -42,7 +42,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Print Output
+    - name: Print latest deployment sha 
       id: output
       run: echo "${{ steps.latest-deployment-sha.outputs.sha }}"
 ```
