@@ -1,6 +1,9 @@
 name: 'Latest deployment sha'
 description: 'Get sha of latest active deployment'
 author: 'Nithin'
+branding:
+  icon: box
+  color: purple
 
 # Define your inputs here.
 inputs:
